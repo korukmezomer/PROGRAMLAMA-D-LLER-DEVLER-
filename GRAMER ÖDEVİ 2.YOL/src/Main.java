@@ -30,7 +30,7 @@ public class Main {
                         || kelimeler[sp].equals("Okumak") ||kelimeler[sp].equals("Yazmak") ||
                         kelimeler[sp].equals("Yürümek") ||kelimeler[sp].equals("Görmek")) {
 
-                    if (kelimeler[sp - 1].equals("Bahce") || kelimeler[sp - 1].equals("Okul") ||
+                    if (kelimeler[sp - 1].equals("Bahçe") || kelimeler[sp - 1].equals("Okul") ||
                             kelimeler[sp -1].equals("Park") || kelimeler[sp - 1].equals("Sınıf") ||
                             kelimeler[sp -1].equals("Yarın") || kelimeler[sp - 1].equals("Pazartesi") ||
                             kelimeler[sp -1].equals("Salı") || kelimeler[sp - 1].equals("Çarşamba") ||
