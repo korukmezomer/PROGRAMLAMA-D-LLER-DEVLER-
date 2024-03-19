@@ -23,7 +23,7 @@ public class Main {
 
     public static boolean kontrolEt(String[] kelimeler) {
         int sp = kelimeler.length - 1;
-        while (sp != 0) {
+        
             if (kelimeler.length==3) {
 
                 if (kelimeler[sp].equals("Gitmek")||kelimeler[sp].equals("Gelmek")
@@ -51,8 +51,7 @@ public class Main {
                     }
                 }
             }
-            sp--;
-        }
+        
         return true;
     }
 }
