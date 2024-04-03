@@ -10,39 +10,40 @@ public class Main {
         System.out.println("lutfen dosya ismi girin == src/dosya.txt ");
         isim =scanner.nextLine();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(isim))) {
-            sayisinif[] bagliListe = new sayisinif[200];
-            sayisinif[] bagliListe2 = new sayisinif[200];//yan yana yazdırmak için kopya oluşturdum
+            sayisinif[] dizi1 = new sayisinif[200];
+            sayisinif[] dizi2 = new sayisinif[200];//yan yana yazdırmak için kopya oluşturdum
             int index = 0;
             String satir;
-            for (int i = 0; i < bagliListe.length; i++) {
-                bagliListe[i] = new sayisinif();
-                bagliListe2[i] = new sayisinif();
+            for (int i = 0; i < dizi1.length; i++) {
+                dizi1[i] = new sayisinif();
+                dizi2[i] = new sayisinif();
             }
 
             while ((satir = bufferedReader.readLine()) != null) {
-                if (!satir.isEmpty() && index < bagliListe.length) {
-                    bagliListe[index].sayi1 = Integer.parseInt(satir);
-                    bagliListe2[index].sayi1=Integer.parseInt(satir);
-                    bagliListe[index].sayi2 = index;
-                    bagliListe2[index].sayi2=index;
+                if (!satir.isEmpty() && index < dizi1.length) {
+                    dizi1[index].sayi1 = Integer.parseInt(satir);
+                    dizi1[index].sayi2 = index;
                     index++;
                 }
+            }
+            for (int j = 0; j <index ;j++) {
+                dizi2[j]=dizi1[j];
             }
 
             for (int i = 0; i < index - 1; i++) {
                 for (int j = 0; j < index - i - 1; j++) {
-                    if (bagliListe[j].sayi1 > bagliListe[j + 1].sayi1) {
-                        sayisinif temp = bagliListe[j];
-                        bagliListe[j] = bagliListe[j + 1];
-                        bagliListe[j + 1] = temp;
+                    if (dizi1[j].sayi1 > dizi1[j+1].sayi1) {
+                        sayisinif temp = dizi1[j];
+                        dizi1[j] = dizi1[j + 1];
+                        dizi1[j + 1] = temp;
                     }
                 }
             }
 
             for (int i = 0; i < index; i++) {
                 String bosluk = "%-" + (15) + "s";
-                System.out.printf(bosluk, bagliListe2[i].sayi1 + " " + bagliListe2[i].sayi2);
-                System.out.println("    " + bagliListe[i].sayi1 + " " + bagliListe[i].sayi2);
+                System.out.printf(bosluk, dizi2[i].sayi1 + " " + dizi2[i].sayi2);
+                System.out.println("    " + dizi1[i].sayi1 + " " + dizi1[i].sayi2);
             }
         } catch (IOException e) {
             System.err.println("Dosya okuma hatası: " );
